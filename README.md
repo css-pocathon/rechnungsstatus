@@ -15,3 +15,6 @@ http://localhost:8080/hascode/
  
  
  Rechnungsnummern 12345 und 54321 liefern ein Ergebnis alle anderen 5-stelligen Nummern werden nicht gefunden.
+ 
+ - Support mit "exit" abmelden
+ - Bewertung abgeben

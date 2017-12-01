@@ -1,11 +1,17 @@
-# Java EE 7 - GlassFish WebSockets Chat Tutorial
+# GlassFish WebSockets Pocathon Chat
 
-An example setting up a websocket-enabled chat system using Java EE 7, custom encoders/decoders, GlassFish 4, the new Java API for JSON Processing and Bootstrap.
+```
+mvn clean package embedded-glassfish:run -D=skipTests
+```
 
-For more detailed information, please feel free to have a look at my blog at [www.hascode.com].
 
-----
+```
+http://localhost:8080/hascode/
+```
 
-**2013 Micha Kops / hasCode.com**
-
-   [www.hascode.com]:http://www.hascode.com/
+ - zwei Fenster öffnen
+ - im ersten Fenster mit dem Namen Support anmelden
+ - im zweiten Fenster als Kunden an melden, z.B. Name Kunde
+ 
+ 
+ Rechnungsnummern 12345 und 54321 liefern ein Ergebnis alle anderen 5-stelligen Nummern werden nicht gefunden.

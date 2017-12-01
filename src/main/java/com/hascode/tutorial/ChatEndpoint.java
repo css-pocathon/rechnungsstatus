@@ -111,7 +111,7 @@ public class ChatEndpoint {
 
 
                         ChatMessage m = new ChatMessage();
-                        m.setMessage(handleUserMessage(chatMessage));
+                        m.setMessage(handleUserMessage(chatMessage) +" " + user);
                         m.setReceived(new Date());
                         m.setSender(BOT);
                         s.getBasicRemote().sendObject(m);
@@ -124,6 +124,9 @@ public class ChatEndpoint {
             }
 
             if (exit) {
+
+                usr.getUserProperties().put("msg", new ArrayList<ChatMessage>());
+
                 on = true;
                 support.getUserProperties().put("active", "false");
                 usr.getUserProperties().put("bot", "true");
@@ -140,7 +143,8 @@ public class ChatEndpoint {
 
             }
 
-            if (!on) {
+            String ubot = (String) usr.getUserProperties().get("bot");
+            if (!on && ubot.equals("true")) {
 
 
                 ChatMessage ck = new ChatMessage();
@@ -149,6 +153,12 @@ public class ChatEndpoint {
                 String usrName = (String) usr.getUserProperties().get("user");
                 ck.setMessage("Frau " + usrName + " hat ein Problem mit einer Rechnung.");
                 support.getBasicRemote().sendObject(ck);
+
+                ChatMessage cv = new ChatMessage();
+                cv.setSender(BOT);
+                cv.setReceived(new Date());
+                cv.setMessage("Bisheriger Chatverlauf:");
+                support.getBasicRemote().sendObject(cv);
 
                 List<ChatMessage> msg1 = (List<ChatMessage>) usr.getUserProperties().get("msg");
                 for (ChatMessage c : msg1) {
